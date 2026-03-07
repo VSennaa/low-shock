@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfasvt7wcd8wa"]
+
+[ext_resource type="Script" uid="uid://sxnaga5sc7hj" path="res://scripts/botao.gd" id="1_ff3ai"]
+[ext_resource type="Texture2D" uid="uid://cr4vljolqloas" path="res://icon.svg" id="1_ul3ij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff3ai"]
+size = Vector2(16, 16)
+
+[node name="botao" type="Area2D"]
+script = ExtResource("1_ff3ai")
+
+[node name="anim" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_ul3ij")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ff3ai")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

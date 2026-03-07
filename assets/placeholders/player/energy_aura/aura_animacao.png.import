@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tw8a5gmx7arj"
-path="res://.godot/imported/static.png-7edf686dedee5e2417fefc81d3e0224b.ctex"
+uid="uid://p5n364uo1bd2"
+path="res://.godot/imported/aura_animacao.png-09ab0c81fe0b85c7e85a8c99fd61fdcb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/player/moviment/static.png"
-dest_files=["res://.godot/imported/static.png-7edf686dedee5e2417fefc81d3e0224b.ctex"]
+source_file="res://assets/placeholders/player/energy_aura/aura_animacao.png"
+dest_files=["res://.godot/imported/aura_animacao.png-09ab0c81fe0b85c7e85a8c99fd61fdcb.ctex"]
 
 [params]
 
