@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 g="*res://scripts/g.gd"
 SceneManager="*res://Modular Scene Transition/scene_manager.gd"
 
+[global_group]
+
+machucar_jogador="coisas aqui machucam o jogador ao contato"
+
 [input]
 
 direita={

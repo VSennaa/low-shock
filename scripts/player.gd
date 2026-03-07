@@ -4,22 +4,17 @@ extends CharacterBody2D
 var usando_chock = false
 
 func _ready() -> void:
-	$area_shock/colision.disabled = true
+	$area_shock/colision.set_deferred("disabled", true)
 
 func _physics_process(delta):
+	$debug.text = str(int(g.bateria))
 	if g.bateria <=0.0 or usando_chock: return
 	g.bateria = g.bateria - 0.01
 	
-	# uso
 	if Input.is_action_just_pressed("uso") and g.bateria >= 10.0:
 		shock()
 	
-	# debug
-	$debug.text = str(int(g.bateria))
-	
-	# movimentação
 	var input = Vector2.ZERO
-	
 	if Input.is_action_pressed("direita"):  
 		input.x += 1
 		$anim.play("right")
@@ -40,11 +35,15 @@ func shock():
 	$anim.play("idle")
 	$area_shock/anim.play("default")
 	$area_shock.visible = true
-	$area_shock/colision.disabled = false
+	$area_shock/colision.set_deferred("disabled", false)  # MUDANÇA AQUI
 	g.bateria = g.bateria - 10
 	usando_chock = true
-	await g.delay(0.5) # espera um segundo pra executar a proxima linha
+	await g.delay(0.5)
 	usando_chock = false
 	$anim.play("idle")
 	$area_shock.visible = false
-	$area_shock/colision.disabled = true
+	$area_shock/colision.set_deferred("disabled", true)   # MUDANÇA AQUI
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.is_in_group("machucar_jogador"):
+		shock()  # Isso ainda pode causar erro, mas com set_deferred dentro do shock agora funciona

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv2oss28y06qb"]
+
+[ext_resource type="Texture2D" uid="uid://d3a5c6cs7r1xu" path="res://assets/yellow16.png" id="1_e1nkh"]
+[ext_resource type="Script" uid="uid://dsv0a6g182ff1" path="res://scripts/inimigo_walker.gd" id="1_gihm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gihm1"]
+size = Vector2(14, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q1pbx"]
+radius = 82.006096
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gihm1"]
+radius = 13.0
+
+[node name="inimigo_walker" type="CharacterBody2D" groups=["machucar_jogador"]]
+script = ExtResource("1_gihm1")
+
+[node name="anim" type="Sprite2D" parent="."]
+texture = ExtResource("1_e1nkh")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gihm1")
+
+[node name="range" type="Area2D" parent="."]
+
+[node name="colision" type="CollisionShape2D" parent="range"]
+shape = SubResource("CircleShape2D_q1pbx")
+
+[node name="hurtbox" type="Area2D" parent="." groups=["machucar_jogador"]]
+
+[node name="colision" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_gihm1")
+
+[connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
