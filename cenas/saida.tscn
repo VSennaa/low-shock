@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cilgufkvfpqpb"]
+
+[ext_resource type="Script" uid="uid://e1xcig78bdqj" path="res://scripts/saida.gd" id="1_aq36k"]
+
+[node name="saida" type="Area2D"]
+script = ExtResource("1_aq36k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

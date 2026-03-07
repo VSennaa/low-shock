@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 g="*res://scripts/g.gd"
+SceneManager="*res://Modular Scene Transition/scene_manager.gd"
 
 [input]
 

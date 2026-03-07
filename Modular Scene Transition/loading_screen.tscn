@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://q0ytdvoddi80"]
+
+[ext_resource type="Script" uid="uid://vkkbilsi043o" path="res://Content/Modular Scene Transition/loading_screen.gd" id="1_3gcey"]
+[ext_resource type="Shader" uid="uid://c6i0jy0smwhcy" path="res://Content/Modular Scene Transition/circle_transition.gdshader" id="2_l08pu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmt6l"]
+shader = ExtResource("2_l08pu")
+shader_parameter/_CirclePosition = Vector2(0.5, 0.5)
+shader_parameter/_Progress = 0.999999977648
+shader_parameter/_Smoothness = 0.03
+shader_parameter/_Background = Color(0, 0, 0, 1)
+
+[node name="loading_screen" type="CanvasLayer" unique_id=576106411 node_paths=PackedStringArray("transition_node")]
+layer = 200
+script = ExtResource("1_3gcey")
+transition_node = NodePath("transition_node")
+
+[node name="transition_node" type="ColorRect" parent="." unique_id=2110493063]
+material = SubResource("ShaderMaterial_rmt6l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
