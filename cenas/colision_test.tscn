@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://s8mjf2dm0yjg"]
+
+[ext_resource type="Texture2D" uid="uid://d3a5c6cs7r1xu" path="res://assets/yellow16.png" id="1_20po3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vuark"]
+texture = ExtResource("1_20po3")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_dcs4v"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_vuark")
+
+[node name="colision_test" type="TileMapLayer"]
+tile_set = SubResource("TileSet_dcs4v")
