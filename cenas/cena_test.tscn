@@ -1,16 +1,151 @@
-[gd_scene load_steps=3 format=4 uid="uid://sqmhmlnysrq1"]
+[gd_scene load_steps=9 format=4 uid="uid://sqmhmlnysrq1"]
 
 [ext_resource type="PackedScene" uid="uid://ctwtjjtnbduae" path="res://cenas/player.tscn" id="1_14116"]
 [ext_resource type="PackedScene" uid="uid://s8mjf2dm0yjg" path="res://cenas/colision_test.tscn" id="2_60dmn"]
+[ext_resource type="PackedScene" uid="uid://dfasvt7wcd8wa" path="res://cenas/botao.tscn" id="3_khgeg"]
+[ext_resource type="PackedScene" uid="uid://bqm8d2f1fvurg" path="res://cenas/door.tscn" id="4_0ijrj"]
+[ext_resource type="PackedScene" uid="uid://cilgufkvfpqpb" path="res://cenas/saida.tscn" id="5_on1lw"]
+[ext_resource type="PackedScene" uid="uid://cv2oss28y06qb" path="res://cenas/inimigo_walker.tscn" id="6_5bjyn"]
+[ext_resource type="PackedScene" uid="uid://crgm2fbnbby16" path="res://cenas/inimigo_shooter.tscn" id="7_83ctx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bjyn"]
+size = Vector2(20, 48)
 
 [node name="cenaTest" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_14116")]
-position = Vector2(160, 76)
+position = Vector2(116, 59)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
 zoom = Vector2(2, 2)
 
 [node name="colision_test" parent="." instance=ExtResource("2_60dmn")]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAjAAEAAAAAAAAAAAAjAAIAAAAAAAAAAAAjAAMAAAAAAAAAAAAjAAQAAAAAAAAAAAAjAAUAAAAAAAAAAAAjAAYAAAAAAAAAAAAjAAcAAAAAAAAAAAAjAAgAAAAAAAAAAAAjAAkAAAAAAAAAAAAjAAoAAAAAAAAAAAAjAAsAAAAAAAAAAAAjAAwAAAAAAAAAAAAjAA0AAAAAAAAAAAAjAA4AAAAAAAAAAAAjAA8AAAAAAAAAAAAjABAAAAAAAAAAAAAjABEAAAAAAAAAAAAjABIAAAAAAAAAAAAjABMAAAAAAAAAAAAjABQAAAAAAAAAAAAiABQAAAAAAAAAAAAhABQAAAAAAAAAAAAgABQAAAAAAAAAAAAfABQAAAAAAAAAAAAeABQAAAAAAAAAAAAdABQAAAAAAAAAAAAcABQAAAAAAAAAAAAbABQAAAAAAAAAAAAaABQAAAAAAAAAAAAZABQAAAAAAAAAAAAYABQAAAAAAAAAAAAXABQAAAAAAAAAAAAWABQAAAAAAAAAAAAVABQAAAAAAAAAAAAUABQAAAAAAAAAAAATABQAAAAAAAAAAAASABQAAAAAAAAAAAARABQAAAAAAAAAAAAQABQAAAAAAAAAAAAPABQAAAAAAAAAAAAOABQAAAAAAAAAAAANABQAAAAAAAAAAAAMABQAAAAAAAAAAAALABQAAAAAAAAAAAAKABQAAAAAAAAAAAAJABQAAAAAAAAAAAAIABQAAAAAAAAAAAAHABQAAAAAAAAAAAAGABQAAAAAAAAAAAAFABQAAAAAAAAAAAAEABQAAAAAAAAAAAADABQAAAAAAAAAAAACABQAAAAAAAAAAAABABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAABMAAAAAAAAAAAAAABIAAAAAAAAAAAAVAAUAAAAAAAAAAAAVAAYAAAAAAAAAAAAVAAcAAAAAAAAAAAAVAAgAAAAAAAAAAAAbAAUAAAAAAAAAAAAbAAYAAAAAAAAAAAAbAAcAAAAAAAAAAAAbAAgAAAAAAAAAAAATAAwAAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAXAA4AAAAAAAAAAAAYAA4AAAAAAAAAAAAZAA4AAAAAAAAAAAAaAA4AAAAAAAAAAAAbAA4AAAAAAAAAAAAcAA0AAAAAAAAAAAAdAAwAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAVAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAATAAAAAAAAAAAAAAASAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAZAAAAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAjAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA8AAAAAAAAAAAAAABAAAAAAAAAAAAAAABEAAAAAAAAAAAAjAAEAAAAAAAAAAAAjAAIAAAAAAAAAAAAjAAMAAAAAAAAAAAAjAAQAAAAAAAAAAAAjAAUAAAAAAAAAAAAjAAYAAAAAAAAAAAAjAAcAAAAAAAAAAAAjAAgAAAAAAAAAAAAjAAkAAAAAAAAAAAAjAAoAAAAAAAAAAAAjAAsAAAAAAAAAAAAjAAwAAAAAAAAAAAAjAA0AAAAAAAAAAAAjAA4AAAAAAAAAAAAjAA8AAAAAAAAAAAAjABAAAAAAAAAAAAAiABQAAAAAAAAAAAAhABQAAAAAAAAAAAAgABQAAAAAAAAAAAAfABQAAAAAAAAAAAAeABQAAAAAAAAAAAAdABQAAAAAAAAAAAAcABQAAAAAAAAAAAAbABQAAAAAAAAAAAAaABQAAAAAAAAAAAAZABQAAAAAAAAAAAAYABQAAAAAAAAAAAAXABQAAAAAAAAAAAAWABQAAAAAAAAAAAAVABQAAAAAAAAAAAAUABQAAAAAAAAAAAATABQAAAAAAAAAAAASABQAAAAAAAAAAAARABQAAAAAAAAAAAAQABQAAAAAAAAAAAAPABQAAAAAAAAAAAAOABQAAAAAAAAAAAANABQAAAAAAAAAAAAMABQAAAAAAAAAAAALABQAAAAAAAAAAAAKABQAAAAAAAAAAAAJABQAAAAAAAAAAAAIABQAAAAAAAAAAAAHABQAAAAAAAAAAAAGABQAAAAAAAAAAAAFABQAAAAAAAAAAAAEABQAAAAAAAAAAAADABQAAAAAAAAAAAACABQAAAAAAAAAAAABABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAABMAAAAAAAAAAAAAABIAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAADAAcAAAAAAAAAAAAHAAcAAAAAAAAAAAAIAAcAAAAAAAAAAAAJAAcAAAAAAAAAAAAKAAcAAAAAAAAAAAALAAcAAAAAAAAAAAALAAEAAAAAAAAAAAALAAYAAAAAAAAAAAAiABAAAAAAAAAAAAAhABAAAAAAAAAAAAAgABAAAAAAAAAAAAAfABAAAAAAAAAAAAAeABAAAAAAAAAAAAAdABAAAAAAAAAAAAAcABAAAAAAAAAAAAAjABQAAAAAAAAAAAA=")
+
+[node name="botao" parent="." instance=ExtResource("3_khgeg")]
+position = Vector2(53, 61)
+
+[node name="botao2" parent="." instance=ExtResource("3_khgeg")]
+position = Vector2(464, 71)
+num = 2.0
+
+[node name="botao3" parent="." instance=ExtResource("3_khgeg")]
+position = Vector2(522, 298)
+num = 3.0
+
+[node name="portas1" type="Node2D" parent="."]
+
+[node name="door" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(184, 40)
+
+[node name="door2" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(184, 56)
+
+[node name="door3" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(184, 72)
+
+[node name="door4" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(184, 88)
+
+[node name="door5" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(281, 66)
+fechado = false
+
+[node name="door6" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(321, 63)
+fechado = false
+
+[node name="door7" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(257, 93)
+fechado = false
+
+[node name="door8" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(272, 103)
+fechado = false
+
+[node name="door9" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(287, 112)
+fechado = false
+
+[node name="door10" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(305, 110)
+fechado = false
+
+[node name="door11" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(323, 115)
+fechado = false
+
+[node name="door12" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(456, 280)
+fechado = false
+
+[node name="door13" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(456, 296)
+fechado = false
+
+[node name="door14" parent="portas1" instance=ExtResource("4_0ijrj")]
+position = Vector2(456, 312)
+fechado = false
+
+[node name="portas2" type="Node2D" parent="."]
+
+[node name="door12" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(72, 120)
+num_necessario = 2
+
+[node name="door13" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(88, 120)
+num_necessario = 2
+
+[node name="door14" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(104, 120)
+num_necessario = 2
+
+[node name="door15" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(472, 280)
+num_necessario = 2
+
+[node name="door16" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(472, 296)
+num_necessario = 2
+
+[node name="door17" parent="portas2" instance=ExtResource("4_0ijrj")]
+position = Vector2(472, 312)
+num_necessario = 2
+
+[node name="saida" parent="." instance=ExtResource("5_on1lw")]
+position = Vector2(554, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="saida"]
+position = Vector2(12, 6)
+shape = SubResource("RectangleShape2D_5bjyn")
+
+[node name="Label" type="Label" parent="saida"]
+offset_left = 30.0
+offset_top = -15.0
+offset_right = 243.0
+offset_bottom = 34.0
+text = "precisa colocar um colision 
+shape como filho da saida"
+
+[node name="inimigo_walker" parent="." instance=ExtResource("6_5bjyn")]
+position = Vector2(244, 194)
+seguidor = true
+
+[node name="inimigo_shooter" parent="." instance=ExtResource("7_83ctx")]
+position = Vector2(51, 287)
+pode_tomar_shock = true
+num_para_trocar_estado = 3
+
+[node name="Label" type="Label" parent="."]
+offset_left = 588.0
+offset_top = 9.0
+offset_right = 845.0
+offset_bottom = 162.0
+text = "cada botão ao energizado envia 
+um sinal com parametro num
+
+relacione o numero do botão
+ao do objeto energizado para 
+trocarnseu estado on/off"

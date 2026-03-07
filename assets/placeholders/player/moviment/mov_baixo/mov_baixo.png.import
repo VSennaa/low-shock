@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tw8a5gmx7arj"
-path="res://.godot/imported/static.png-7edf686dedee5e2417fefc81d3e0224b.ctex"
+uid="uid://jw8wui5loffi"
+path="res://.godot/imported/mov_baixo.png-ae6d742efdee745e05f491977cdda4b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/player/moviment/static.png"
-dest_files=["res://.godot/imported/static.png-7edf686dedee5e2417fefc81d3e0224b.ctex"]
+source_file="res://assets/placeholders/player/moviment/mov_baixo/mov_baixo.png"
+dest_files=["res://.godot/imported/mov_baixo.png-ae6d742efdee745e05f491977cdda4b9.ctex"]
 
 [params]
 

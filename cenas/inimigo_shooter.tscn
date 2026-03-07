@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://crgm2fbnbby16"]
+
+[ext_resource type="Script" uid="uid://d21jhbkor5kys" path="res://scripts/inimigo_shooter.gd" id="1_66mbo"]
+[ext_resource type="Texture2D" uid="uid://cr4vljolqloas" path="res://icon.svg" id="1_ji84o"]
+[ext_resource type="PackedScene" uid="uid://brkc2ofn8mjby" path="res://cenas/projetil.tscn" id="2_nn5qq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66mbo"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn5qq"]
+
+[node name="inimigo_shooter" type="StaticBody2D" groups=["machucar_jogador"]]
+script = ExtResource("1_66mbo")
+projetil = ExtResource("2_nn5qq")
+
+[node name="anim" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_ji84o")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_66mbo")
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="colision" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("RectangleShape2D_nn5qq")
+
+[node name="spawn" type="Marker2D" parent="."]
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
