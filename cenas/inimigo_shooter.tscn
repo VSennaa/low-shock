@@ -1,8 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://crgm2fbnbby16"]
+[gd_scene load_steps=10 format=3 uid="uid://crgm2fbnbby16"]
 
 [ext_resource type="Script" uid="uid://d21jhbkor5kys" path="res://scripts/inimigo_shooter.gd" id="1_66mbo"]
-[ext_resource type="Texture2D" uid="uid://cr4vljolqloas" path="res://icon.svg" id="1_ji84o"]
 [ext_resource type="PackedScene" uid="uid://brkc2ofn8mjby" path="res://cenas/projetil.tscn" id="2_nn5qq"]
+[ext_resource type="Texture2D" uid="uid://n6gqblesjwv" path="res://assets/lixo visual/chip.png" id="3_nn5qq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8swd3"]
+atlas = ExtResource("3_nn5qq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq5p8"]
+atlas = ExtResource("3_nn5qq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kyd6"]
+atlas = ExtResource("3_nn5qq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mon30"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8swd3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq5p8")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kyd6")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_66mbo"]
 size = Vector2(16, 16)
@@ -13,10 +52,10 @@ size = Vector2(16, 16)
 script = ExtResource("1_66mbo")
 projetil = ExtResource("2_nn5qq")
 
-[node name="anim" type="Sprite2D" parent="."]
+[node name="anim" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.13, 0.13)
-texture = ExtResource("1_ji84o")
+sprite_frames = SubResource("SpriteFrames_mon30")
+autoplay = "default"
 
 [node name="colision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_66mbo")

@@ -21,6 +21,7 @@ func _start_atirar():
 
 func _atirar():
 	if projetil and $spawn:  # Verifica se o nó spawn existe
+		$anim.play("shoot")
 		var instancia = projetil.instantiate()
 		get_parent().add_child(instancia)
 		
@@ -35,12 +36,19 @@ func _atirar():
 		print("Tiro disparado de ", $spawn.global_position)
 	else:
 		print("Erro: Projétil ou nó spawn não encontrado!")
+	await g.delay(0.5)
+	if ativo: $anim.play("default")
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if pode_tomar_shock and area.name == "area_shock":
 		ativo = false
+		skin()
 		
 func btn_ativo(num:int):
 	if num == num_para_trocar_estado:
 		ativo = not ativo
+		skin()
+
+func skin():
+	if !ativo: $anim.play("die")
