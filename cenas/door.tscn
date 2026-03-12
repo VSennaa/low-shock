@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqm8d2f1fvurg"]
 
 [ext_resource type="Script" uid="uid://jn862631kc21" path="res://scripts/door.gd" id="1_ucut5"]
-[ext_resource type="Texture2D" uid="uid://4bf2o5el02fu" path="res://assets/lixo visual/porta (2).png" id="2_ucut5"]
+[ext_resource type="Texture2D" uid="uid://nl1l8mr84iy2" path="res://assets/packs/DUMMY DUNGEON - sorto dedd/prota_1.png" id="2_ucut5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t126w"]
 size = Vector2(16, 16)
