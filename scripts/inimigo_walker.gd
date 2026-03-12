@@ -13,6 +13,9 @@ var direcao_original: Vector2  # Guarda a direção original
 func _ready():
 	posicao_anterior = global_position
 	direcao_original = direcao  # Salva a direção do export
+	if seguidor:
+		$anim_seguidor.visible = true
+		$anim.visible = false
 
 func _physics_process(delta):
 	posicao_anterior = global_position
@@ -53,3 +56,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		velocidade_perseguicao = 0.0
 		seguindo = false
 		jogador = null
+		seguidor = false
+		$colision.set_deferred("disabled", false)
+		$anim.play("die")
+		$anim_seguidor.play("die")
+		#deu um bug aqui mas to com preguiça

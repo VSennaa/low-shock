@@ -129,6 +129,11 @@ shape como filho da saida"
 position = Vector2(244, 194)
 seguidor = true
 
+[node name="inimigo_walker2" parent="." instance=ExtResource("6_5bjyn")]
+position = Vector2(464, 151)
+direcao = Vector2(0, -1)
+velocidade = 100.0
+
 [node name="inimigo_shooter" parent="." instance=ExtResource("7_83ctx")]
 position = Vector2(51, 287)
 pode_tomar_shock = true
